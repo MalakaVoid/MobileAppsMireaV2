@@ -1,7 +1,7 @@
 package ru.mirea.azbukindu.booksproject.domain.usecases;
 
-import ru.mirea.azbukindu.booksproject.data.repository.UsersRepository;
 import ru.mirea.azbukindu.booksproject.domain.models.User;
+import ru.mirea.azbukindu.booksproject.domain.repository.UsersRepository;
 
 public class GetUserInfoUseCase {
 

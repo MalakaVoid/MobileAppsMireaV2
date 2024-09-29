@@ -3,17 +3,10 @@ package ru.mirea.azbukindu.booksproject.domain.repository;
 import ru.mirea.azbukindu.booksproject.domain.models.Comment;
 import ru.mirea.azbukindu.booksproject.domain.models.User;
 
-public class CommentRepository {
+public interface CommentRepository {
 
-    protected User user;
+    public Comment[] getComments(String bookId);
 
-    public Comment[] getComments(String bookId){
-        return new Comment[] {Comment.getCommentForTest()};
-        // получение комментариев по книге
-    }
-
-    public Comment addComment(String bookId, String text){
-        return Comment.getCommentForTest();
-    }
+    public Comment addComment(String bookId, String text);
 
 }

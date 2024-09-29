@@ -1,9 +1,7 @@
 package ru.mirea.azbukindu.booksproject.domain.usecases;
 
-import ru.mirea.azbukindu.booksproject.data.repository.BooksRepository;
-import ru.mirea.azbukindu.booksproject.data.repository.CommentRepository;
-import ru.mirea.azbukindu.booksproject.domain.models.Book;
 import ru.mirea.azbukindu.booksproject.domain.models.Comment;
+import ru.mirea.azbukindu.booksproject.domain.repository.CommentRepository;
 
 public class GetCommentsUseCase {
 

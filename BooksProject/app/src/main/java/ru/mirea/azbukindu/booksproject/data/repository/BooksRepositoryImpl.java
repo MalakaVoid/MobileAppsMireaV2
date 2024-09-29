@@ -1,13 +1,17 @@
 package ru.mirea.azbukindu.booksproject.data.repository;
 
-import java.util.Date;
-
 import ru.mirea.azbukindu.booksproject.domain.models.Book;
 import ru.mirea.azbukindu.booksproject.domain.models.User;
+import ru.mirea.azbukindu.booksproject.domain.repository.BooksRepository;
 
-public class BooksRepository {
+public class BooksRepositoryImpl implements BooksRepository {
 
-    protected User user;
+    private User user;
+
+    public BooksRepositoryImpl(User user) {
+        this.user = user;
+    }
+
 
     public Book[] getAllBooks(){
         return new Book[] {Book.getBookForTest()};

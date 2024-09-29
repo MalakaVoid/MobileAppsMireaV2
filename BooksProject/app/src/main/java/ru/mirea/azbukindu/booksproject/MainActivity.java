@@ -4,13 +4,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-import ru.mirea.azbukindu.booksproject.data.BooksRepositoryImpl;
-import ru.mirea.azbukindu.booksproject.data.CommentRepositoryImpl;
-import ru.mirea.azbukindu.booksproject.data.UsersRepositoryImpl;
-import ru.mirea.azbukindu.booksproject.data.repository.BooksRepository;
-import ru.mirea.azbukindu.booksproject.data.repository.CommentRepository;
-import ru.mirea.azbukindu.booksproject.data.repository.UsersRepository;
+import ru.mirea.azbukindu.booksproject.data.repository.BooksRepositoryImpl;
+import ru.mirea.azbukindu.booksproject.data.repository.CommentRepositoryImpl;
+import ru.mirea.azbukindu.booksproject.data.repository.UsersRepositoryImpl;
 import ru.mirea.azbukindu.booksproject.domain.models.User;
+import ru.mirea.azbukindu.booksproject.domain.repository.BooksRepository;
+import ru.mirea.azbukindu.booksproject.domain.repository.CommentRepository;
+import ru.mirea.azbukindu.booksproject.domain.repository.UsersRepository;
 import ru.mirea.azbukindu.booksproject.domain.usecases.GetAllBooksUseCase;
 import ru.mirea.azbukindu.booksproject.domain.usecases.GetCommentsUseCase;
 import ru.mirea.azbukindu.booksproject.domain.usecases.SignUpUseCase;

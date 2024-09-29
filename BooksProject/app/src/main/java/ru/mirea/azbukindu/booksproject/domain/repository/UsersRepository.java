@@ -2,22 +2,14 @@ package ru.mirea.azbukindu.booksproject.domain.repository;
 
 import ru.mirea.azbukindu.booksproject.domain.models.User;
 
-public class UsersRepository {
+public interface UsersRepository {
 
-    public boolean signIn(String username, String password){
-        return true;
-    }
+    public boolean signIn(String username, String password);
 
-    public boolean signUp(String username, String password){
-        return true;
-    }
+    public boolean signUp(String username, String password);
 
-    public boolean logOut(){
-        return true;
-    }
+    public boolean logOut();
 
-    public User getUserinfo(){
-        return User.getUserForTest();
-    }
+    public User getUserinfo();
 
 }

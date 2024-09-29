@@ -1,8 +1,9 @@
 package ru.mirea.azbukindu.booksproject.data.repository;
 
 import ru.mirea.azbukindu.booksproject.domain.models.User;
+import ru.mirea.azbukindu.booksproject.domain.repository.UsersRepository;
 
-public class UsersRepository {
+public class UsersRepositoryImpl implements UsersRepository {
 
     public boolean signIn(String username, String password){
         return true;
