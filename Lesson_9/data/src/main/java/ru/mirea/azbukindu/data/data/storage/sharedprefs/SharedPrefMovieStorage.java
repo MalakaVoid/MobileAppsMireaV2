@@ -25,20 +25,23 @@ public class SharedPrefMovieStorage implements MovieStorage {
 
     @Override
     public Movie get() {
-        String filmName = sharedPreferences.getString(KEY, "Game of throne");
+        String movieName = sharedPreferences.getString(KEY, "Game of throne");
         String movieDate = sharedPreferences.getString(DATE_KEY, String.valueOf(LocalDate.now()));
         int movieId = sharedPreferences.getInt(ID_KEY, -1);
-        return new Movie(movieId, filmName, movieDate);
+
+        return new Movie(movieId, movieName, movieDate);
     }
 
     @Override
     public boolean save(Movie movie) {
-        sharedPreferences.edit().putString(KEY, movie.getName());
-        sharedPreferences.edit().putString(DATE_KEY,
-                String.valueOf(LocalDate.now()));
-        sharedPreferences.edit().putInt(ID_KEY, 1);
-        sharedPreferences.edit().commit();
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString(KEY, movie.getName());
+        editor.putString(DATE_KEY, String.valueOf(LocalDate.now()));
+        editor.putInt(ID_KEY, 1);
+        editor.apply();
+
         return false;
     }
+
 
 }
