@@ -7,6 +7,7 @@
 Название            | Статус | Ссылка
 --------------------|--------|--------
 Практика 9 | 🟡 | <a href="https://github.com/MalakaVoid/MobileAppsMireaV2/tree/main/Lesson_9">Практика</a> <a href="https://github.com/MalakaVoid/MobileAppsMireaV2/blob/main/BooksProject/README.md">Диаграммы</a>
+Практика 10 | 🔴 | <a href="https://github.com/MalakaVoid/MobileAppsMireaV2/tree/main/Lesson_9">Практика</a>
 
 **Статусы выполнения:** <br>
 🔴 Не готово <br>
