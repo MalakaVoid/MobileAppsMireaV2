@@ -4,15 +4,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import ru.mirea.azbukindu.movieproject.data.MovieRepositoryImpl;
-import ru.mirea.azbukindu.movieproject.domain.models.Movie;
-import ru.mirea.azbukindu.movieproject.domain.repository.MovieRepository;
-import ru.mirea.azbukindu.movieproject.domain.usecases.GetFavoriteFilmUseCase;
-import ru.mirea.azbukindu.movieproject.domain.usecases.SaveMovieToFavoriteUseCase;
+import ru.mirea.azbukindu.data.data.MovieRepositoryImpl;
+import ru.mirea.azbukindu.data.data.storage.MovieStorage;
+import ru.mirea.azbukindu.data.data.storage.sharedprefs.SharedPrefMovieStorage;
+import ru.mirea.azbukindu.domain.domain.repository.MovieRepository;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -24,12 +22,13 @@ public class MainActivity extends AppCompatActivity {
         EditText text = findViewById(R.id.editText);
         TextView textView = findViewById(R.id.textData);
 
-        MovieRepository movieRepository = new MovieRepositoryImpl(getApplicationContext());
+        MovieStorage sharedPrefMovieStorage = new SharedPrefMovieStorage(this);
+        MovieRepository movieRepository = new MovieRepositoryImpl(sharedPrefMovieStorage);
         findViewById(R.id.save).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Boolean result = new
-                        SaveMovieToFavoriteUseCase(movieRepository).execute(new Movie(2,
+                        ru.mirea.azbukindu.domain.domain.usecases.SaveMovieToFavoriteUseCase(movieRepository).execute(new ru.mirea.azbukindu.domain.domain.models.Movie(2,
                         text.getText().toString()));
                 textView.setText(String.format("Save result %s", result));
             }
@@ -38,9 +37,10 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.buttonShow).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Movie moview = new GetFavoriteFilmUseCase(movieRepository).execute();
+                ru.mirea.azbukindu.domain.domain.models.Movie moview = new ru.mirea.azbukindu.domain.domain.usecases.GetFavoriteFilmUseCase(movieRepository).execute();
                 textView.setText(String.format("Save result %s", moview.getName()));
             }
         });
     }
+
 }

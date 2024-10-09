@@ -1,4 +1,4 @@
-package ru.mirea.azbukindu.movieproject.domain.models;
+package ru.mirea.azbukindu.domain.domain.models;
 
 public class Movie {
     private int id;

@@ -1,7 +1,7 @@
-package ru.mirea.azbukindu.movieproject.domain.usecases;
+package ru.mirea.azbukindu.domain.domain.usecases;
 
-import ru.mirea.azbukindu.movieproject.domain.models.Movie;
-import ru.mirea.azbukindu.movieproject.domain.repository.MovieRepository;
+import ru.mirea.azbukindu.domain.domain.models.Movie;
+import ru.mirea.azbukindu.domain.domain.repository.MovieRepository;
 
 public class SaveMovieToFavoriteUseCase {
     private MovieRepository movieRepository;
