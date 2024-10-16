@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1079056822351",
+    "project_id": "books-project-c5a42",
+    "storage_bucket": "books-project-c5a42.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1079056822351:android:1cf7d238b5c252095aba3a",
+        "android_client_info": {
+          "package_name": "ru.mirea.azbukindu.booksproject"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDTgAGcY8nhE4wnNZCZJvhaGPDsRTU3p9A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
