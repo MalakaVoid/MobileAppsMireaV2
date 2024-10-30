@@ -15,6 +15,7 @@ import ru.mirea.azbukindu.data.firebase.FirebaseAuthController;
 import ru.mirea.azbukindu.data.repository.UsersRepositoryImpl;
 import ru.mirea.azbukindu.domain.AuthCallback;
 import ru.mirea.azbukindu.domain.repository.UsersRepository;
+import ru.mirea.azbukindu.domain.usecases.CheckUserLoggedInUseCase;
 import ru.mirea.azbukindu.domain.usecases.SignInUseCase;
 import ru.mirea.azbukindu.domain.usecases.SignUpUseCase;
 
@@ -33,12 +34,15 @@ public class AuthActivity extends AppCompatActivity {
     private Button registerButtonSubmit;
     private Button buttonEnter;
 
+    private CheckUserLoggedInUseCase checkUserLoggedInUseCase;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_auth);
 
         setUpView();
+        checkLoggedIn();
     }
 
     private void setUpView(){
@@ -60,6 +64,7 @@ public class AuthActivity extends AppCompatActivity {
         UsersRepositoryImpl usersRepository = new UsersRepositoryImpl(firebaseAuthController);
         SignUpUseCase signUpUseCase = new SignUpUseCase(usersRepository);
         SignInUseCase signInUseCase = new SignInUseCase(usersRepository);
+        checkUserLoggedInUseCase = new CheckUserLoggedInUseCase(usersRepository);
 
         changeForm(true);
         buttonEnter.setOnClickListener(view -> changeForm(true));
@@ -122,6 +127,12 @@ public class AuthActivity extends AppCompatActivity {
         } else {
             registerForm.setVisibility(View.VISIBLE);
             loginForm.setVisibility(View.INVISIBLE);
+        }
+    }
+
+    private void checkLoggedIn(){
+        if (checkUserLoggedInUseCase.execute()){
+            startActivity(new Intent(this, MainActivity.class));
         }
     }
 }

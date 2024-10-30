@@ -5,6 +5,15 @@
       <entry key="app">
         <State />
       </entry>
+      <entry key="listviewapp">
+        <State />
+      </entry>
+      <entry key="scrollviewapp">
+        <State />
+      </entry>
+      <entry key="scrollviewapp_v2">
+        <State />
+      </entry>
     </value>
   </component>
 </project>

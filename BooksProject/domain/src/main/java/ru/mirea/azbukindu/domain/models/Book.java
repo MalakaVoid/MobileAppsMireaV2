@@ -2,6 +2,7 @@ package ru.mirea.azbukindu.domain.models;
 
 
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -61,5 +62,19 @@ public class Book {
 
     public String getTitle(){
         return volumeInfo.get("title").toString();
+    }
+
+    public String getCoverImage(){
+        if (volumeInfo.containsKey("imageLinks") == false){
+            return "http://books.google.com/books/content?id=a-UCAAAAMBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api";
+        }
+        return ((Map<String, Object>)volumeInfo.get("imageLinks")).get("thumbnail").toString();
+    }
+
+    public String getAuthor(){
+        if (volumeInfo.containsKey("authors") == false){
+            return "Нет автора";
+        }
+        return ((ArrayList<String>)volumeInfo.get("authors")).get(0);
     }
 }

@@ -33,7 +33,7 @@ public class FirebaseAuthController implements AuthController{
     }
 
     @Override
-    public boolean hasUserLogged() {
+    public boolean checkLoggedIn() {
         return firebaseAuth.getCurrentUser() != null;
     }
 

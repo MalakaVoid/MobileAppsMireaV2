@@ -9,6 +9,9 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/listviewapp" />
+            <option value="$PROJECT_DIR$/scrollviewapp" />
+            <option value="$PROJECT_DIR$/scrollviewapp_v2" />
           </set>
         </option>
         <option name="resolveExternalAnnotations" value="false" />

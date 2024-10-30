@@ -20,6 +20,9 @@ public class UsersRepositoryImpl implements UsersRepository {
     public void signUp(String username, String email, String password, AuthCallback authCallback){
         authController.register(username, email, password, new AuthCallbackAdapter(authCallback));
     }
+    public Boolean checkLoggedIn(){
+        return authController.checkLoggedIn();
+    }
 
     public void logOut(){
         authController.leave();

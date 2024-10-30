@@ -4,7 +4,7 @@ public interface AuthController {
 
     public void login(String email, String password, AuthCallback authCallback);
     public void register(String username, String email, String password, AuthCallback authCallback);
-    public boolean hasUserLogged();
+    public boolean checkLoggedIn();
     public void leave();
 
 }
