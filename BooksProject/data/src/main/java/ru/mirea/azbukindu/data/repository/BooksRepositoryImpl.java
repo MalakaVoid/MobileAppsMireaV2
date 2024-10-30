@@ -1,5 +1,10 @@
 package ru.mirea.azbukindu.data.repository;
 
+import java.util.List;
+
+import ru.mirea.azbukindu.data.apiContoller.BooksApi;
+import ru.mirea.azbukindu.data.apiContoller.BooksApiController;
+import ru.mirea.azbukindu.domain.ApiRequestCallback;
 import ru.mirea.azbukindu.domain.models.Book;
 import ru.mirea.azbukindu.domain.models.User;
 import ru.mirea.azbukindu.domain.repository.BooksRepository;
@@ -7,15 +12,15 @@ import ru.mirea.azbukindu.domain.repository.BooksRepository;
 public class BooksRepositoryImpl implements BooksRepository {
 
     private User user;
+    private BooksApiController booksApiController;
 
-    public BooksRepositoryImpl(User user) {
-        this.user = user;
+    public BooksRepositoryImpl(BooksApiController booksApiController) {
+        this.booksApiController = booksApiController;
     }
 
 
-    public Book[] getAllBooks(){
-        return new Book[] {Book.getBookForTest()};
-        // достаем книги из апи
+    public void getAllBooks(ApiRequestCallback<List<Book>> apiRequestCallback){
+        booksApiController.getBooks(apiRequestCallback);
     }
 
     public Book getBook(String bookId){

@@ -1,5 +1,8 @@
 package ru.mirea.azbukindu.domain.usecases;
 
+import java.util.List;
+
+import ru.mirea.azbukindu.domain.ApiRequestCallback;
 import ru.mirea.azbukindu.domain.models.Book;
 import ru.mirea.azbukindu.domain.repository.BooksRepository;
 
@@ -11,8 +14,8 @@ public class GetAllBooksUseCase {
         this.booksRepository = booksRepository;
     }
 
-    public Book[] execute(){
-        return this.booksRepository.getAllBooks();
+    public void execute(ApiRequestCallback<List<Book>> apiRequestCallback){
+        this.booksRepository.getAllBooks(apiRequestCallback);
     }
 
 }

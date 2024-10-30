@@ -1,10 +1,13 @@
 package ru.mirea.azbukindu.domain.repository;
 
+import java.util.List;
+
+import ru.mirea.azbukindu.domain.ApiRequestCallback;
 import ru.mirea.azbukindu.domain.models.Book;
 
 public interface BooksRepository {
 
-    public Book[] getAllBooks();
+    public void getAllBooks(ApiRequestCallback<List<Book>> apiRequestCallback);
 
     public Book getBook(String bookId);
 
