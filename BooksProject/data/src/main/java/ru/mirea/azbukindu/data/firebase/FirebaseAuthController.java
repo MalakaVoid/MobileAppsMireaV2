@@ -2,6 +2,9 @@ package ru.mirea.azbukindu.data.firebase;
 
 import com.google.firebase.auth.FirebaseAuth;
 
+import ru.mirea.azbukindu.domain.UserResponseCallback;
+import ru.mirea.azbukindu.domain.models.User;
+
 public class FirebaseAuthController implements AuthController{
 
     private final FirebaseAuth firebaseAuth;
@@ -42,4 +45,17 @@ public class FirebaseAuthController implements AuthController{
         firebaseAuth.signOut();
     }
 
+    @Override
+    public void getUserInfo(String id, UserResponseCallback userResponseCallback) {
+        if (firebaseAuth.getCurrentUser() != null) {
+            userResponseCallback.onSuccess(new User(id, firebaseAuth.getCurrentUser().getEmail()));
+        } else {
+            userResponseCallback.onError();
+        }
+    }
+
+    @Override
+    public String getUserId() {
+        return firebaseAuth.getCurrentUser().getUid();
+    }
 }

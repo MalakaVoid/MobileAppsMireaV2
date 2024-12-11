@@ -3,6 +3,7 @@ package ru.mirea.azbukindu.data.repository;
 import ru.mirea.azbukindu.data.firebase.AuthController;
 import ru.mirea.azbukindu.data.storage.models.User;
 import ru.mirea.azbukindu.domain.AuthCallback;
+import ru.mirea.azbukindu.domain.UserResponseCallback;
 import ru.mirea.azbukindu.domain.repository.UsersRepository;
 
 public class UsersRepositoryImpl implements UsersRepository {
@@ -27,6 +28,17 @@ public class UsersRepositoryImpl implements UsersRepository {
     public void logOut(){
         authController.leave();
     }
+
+    @Override
+    public void getUserInfo(String id, UserResponseCallback userResponseCallback) {
+        authController.getUserInfo(id, userResponseCallback);
+    }
+
+    @Override
+    public String getUserId() {
+        return authController.getUserId();
+    }
+
 
     private static class AuthCallbackAdapter implements ru.mirea.azbukindu.data.firebase.AuthCallback {
 

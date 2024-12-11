@@ -1,18 +1,19 @@
 package ru.mirea.azbukindu.domain.models;
 
 public class User {
-    private int id;
-    private String username;
-    private String password;
+    private String id;
+    private String email;
 
-    public User(int id, String username, String password) {
+    public User(String id, String email) {
         this.id = id;
-        this.username = username;
-        this.password = password;
+        this.email = email;
     }
 
     public static User getUserForTest(){
-        return new User(1, "test_email", "test_password");
+        return new User("1", "test_email");
     }
 
+    public String getEmail() {
+        return email;
+    }
 }

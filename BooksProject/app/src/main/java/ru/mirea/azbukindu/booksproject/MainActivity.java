@@ -1,53 +1,66 @@
 package ru.mirea.azbukindu.booksproject;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.view.MenuItem;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import ru.mirea.azbukindu.booksproject.fragments.HomeFragment;
+import ru.mirea.azbukindu.booksproject.fragments.ProfileFragment;
 import ru.mirea.azbukindu.booksproject.recycleAdapters.AllBooksAdapter;
-import ru.mirea.azbukindu.booksproject.viewModels.MainActivityViewModel;
-import ru.mirea.azbukindu.booksproject.viewModels.MainActivityViewModelFactory;
-import ru.mirea.azbukindu.data.apiContoller.BooksApiController;
-import ru.mirea.azbukindu.data.repository.BooksRepositoryImpl;
-import ru.mirea.azbukindu.domain.ApiRequestCallback;
+import ru.mirea.azbukindu.booksproject.viewModels.HomeFragmentViewModel;
+import ru.mirea.azbukindu.booksproject.viewModels.HomeFragmentViewModelFactory;
 import ru.mirea.azbukindu.domain.models.Book;
-import ru.mirea.azbukindu.domain.usecases.GetAllBooksUseCase;
 
 
 public class MainActivity extends AppCompatActivity {
-    private MainActivityViewModel viewModel;
-    private RecyclerView recyclerView;
-    private AllBooksAdapter allBooksAdapter;
-    private List<Book> allBooks;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        recyclerView = findViewById(R.id.booksCardsWrapper);
-        allBooks = new ArrayList<>();
-        allBooksAdapter = new AllBooksAdapter(allBooks);
+        BottomNavigationView bottomNavigationView = findViewById(R.id.nav_block);
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                Fragment selectedFragment = null;
 
-        recyclerView.setAdapter(allBooksAdapter);
-        recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
+                switch (item.getItemId()) {
+                    case R.id.nav_home:
+                        selectedFragment = new HomeFragment();
+                        break;
+                    case R.id.nav_profile:
+                        selectedFragment = new ProfileFragment();
+                        break;
+                }
 
-        viewModel = new ViewModelProvider(this, new MainActivityViewModelFactory(this))
-                .get(MainActivityViewModel.class);
+                if (selectedFragment != null) {
+                    getSupportFragmentManager()
+                            .beginTransaction()
+                            .replace(R.id.fragment, selectedFragment)
+                            .commit();
+                }
 
-        viewModel.getAllBooksLiveData().observe(this, books -> {
-            allBooks.clear();
-            allBooks.addAll(books);
-            allBooksAdapter.notifyDataSetChanged();
+                return true;
+            }
         });
 
-        viewModel.getAllBooks();
-
+        if (savedInstanceState == null) {
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.fragment, new HomeFragment())
+                    .commit();
+        }
     }
 }

@@ -9,10 +9,22 @@
     android:background="@color/sup_black"
     tools:context=".MainActivity">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/booksCardsWrapper"
+    <FrameLayout
+        android:layout_marginTop="5dp"
+        android:id="@+id/fragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_above="@id/nav_block"
+        />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/nav_block"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_alignParentBottom="true"
+        app:menu="@menu/nav_menu"
+        android:background="#1A1A1A"
+        app:itemTextColor="@color/white"
         />
 
 </RelativeLayout>
