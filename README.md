@@ -12,6 +12,7 @@
 Практика 12 | 🟢 | <a href="https://github.com/MalakaVoid/MobileAppsMireaV2/tree/main/Lesson_12">Практика</a> [Проект](https://github.com/MalakaVoid/MobileAppsMireaV2/tree/main/BooksProject)
 Практика 13 | 🟢 | <a href="https://github.com/MalakaVoid/MobileAppsMireaV2/tree/main/Lesson_13">Практика</a> [Проект](https://github.com/MalakaVoid/MobileAppsMireaV2/tree/main/BooksProject)
 Практика 14 | 🟡 | <a href="https://github.com/MalakaVoid/MobileAppsMireaV2/tree/main/Lesson_14">Практика</a> [Проект](https://github.com/MalakaVoid/MobileAppsMireaV2/tree/main/BooksProject)
+Практика 15 | 🟡 | <a href="https://github.com/MalakaVoid/MobileAppsMireaV2/tree/main/Lesson_15">Практика</a> [Проект](https://github.com/MalakaVoid/MobileAppsMireaV2/tree/main/BooksProject)
 
 **Статусы выполнения:** <br>
 🔴 Не готово <br>
